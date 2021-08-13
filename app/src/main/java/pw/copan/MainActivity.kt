@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         wv = findViewById<View>(R.id.wv) as WebView
+        wv.settings.javaScriptEnabled = true // JavaScriptの有効化
+
         // リンク先もwebviewで表示するための処理
         wv.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
