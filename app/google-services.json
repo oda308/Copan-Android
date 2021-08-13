@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505489663371",
+    "project_id": "copan-ef083",
+    "storage_bucket": "copan-ef083.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505489663371:android:4507c14b7315023cf0fb8e",
+        "android_client_info": {
+          "package_name": "pw.copan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505489663371-ju4u3k97bm6ru4fab0dg4488juilpkdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_HjXDMBbmK0pWzP-Ymuf_zdC7vZzOmHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505489663371-ju4u3k97bm6ru4fab0dg4488juilpkdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
