@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
     private val TAG = "MainActivity"
 
-
     private lateinit var wv: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +28,20 @@ class MainActivity : AppCompatActivity() {
         wv = findViewById<View>(R.id.wv) as WebView
         wv.settings.javaScriptEnabled = true // JavaScriptの有効化
 
+        // ユーザーエージェントを編集
+        wv.getSettings().setUserAgentString(wv.getSettings().getUserAgentString() + " WebView Copan-Android")
+        Log.d("USER_AGENT", wv.getSettings().getUserAgentString())
+
+        // コールバック用のインターフェースをセット
+        val javaScriptInterface = JavaScriptInterface()
+        wv.addJavascriptInterface(javaScriptInterface, "appJsInterface")
+
         // リンク先もwebviewで表示するための処理
         wv.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                 return false
             }
         })
-        wv.loadUrl("http://copan.pw/")
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -50,6 +56,8 @@ class MainActivity : AppCompatActivity() {
             val msg = getString(R.string.msg_token_fmt, token)
             Log.d(TAG, msg)
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+
+            wv.loadUrl(Constrants.COPAN_URL + "?fcm_token=" + token)
         })
     }
 }
